@@ -53,6 +53,10 @@ public class TreasureHunter {
         if (hard.equals("y")) {
             hardMode = true;
         }
+//        else if (hard.equals("test")) {
+//            hunter.changeGold(90);
+//
+//        }
     }
 
     /**
