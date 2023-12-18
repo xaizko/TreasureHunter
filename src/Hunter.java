@@ -199,4 +199,16 @@ public class Hunter {
 
         return -1;
     }
+
+    /**
+     * Assigns full kit
+     */
+
+    public void testKit() {
+        addItem("water");
+        addItem("rope");
+        addItem("machete");
+        addItem("horse");
+        addItem("boat");
+    }
 }
