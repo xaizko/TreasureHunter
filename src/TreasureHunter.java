@@ -35,7 +35,12 @@ public class TreasureHunter {
         enterTown();
         showMenu();
     }
-
+    private void checkWin(){
+        if(hunter.getGold() < 0){
+            System.out.println(Colors.PURPLE + "Ye ran out o' gold, tough luck, but that be the way she goes. \nThanks fer playin'!"+ Colors.RESET);
+            System.exit(0);
+        }
+    }
     /**
      * Creates a hunter object at the beginning of the game and populates the class member variable with it.
      */
@@ -130,10 +135,12 @@ public class TreasureHunter {
             }
         } else if (choice.equals("l")) {
             currentTown.lookForTrouble();
+            checkWin();
         } else if (choice.equals("x")) {
             System.out.println("Fare thee well, " + hunter.getHunterName() + "!");
         } else {
             System.out.println("Yikes! That's an invalid option! Try again.");
         }
     }
+
 }
