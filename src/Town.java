@@ -113,6 +113,23 @@ public class Town {
         }
     }
 
+    public void huntForTreasure(){ //unfinished!!
+        int findTreasure = (int) (Math.random() * 7) + 1;
+        int count = 0;
+        boolean alreadyFound = false;
+        if(findTreasure == 1){
+            System.out.println("Ye' found a golden Crown! Fitting only for a king");
+            count++;
+        } else if (findTreasure == 2) {
+            System.out.println("Ye' found a trophy! I wonder what competition it be for?");
+            count++;
+        } else if (findTreasure == 3) {
+            System.out.println("Ye' found a gem! Rick Harrison would probably only give ye' 3 dabloons fer' it.");
+            count++;
+        }else{
+            System.out.println("Ye' found dust, unfortunate.");
+        }
+    }
     public String toString() {
         return "This nice little town is surrounded by " + Colors.CYAN + terrain.getTerrainName() + "." + Colors.RESET;
     }
