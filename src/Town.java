@@ -11,6 +11,7 @@ public class Town {
     private Terrain terrain;
     private String printMessage;
     private boolean toughTown;
+    private boolean isSearched;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -30,6 +31,7 @@ public class Town {
 
         // higher toughness = more likely to be a tough town
         toughTown = (Math.random() < toughness);
+        isSearched = false;
     }
 
     public String getLatestNews() {return printMessage;}
@@ -113,23 +115,22 @@ public class Town {
 
     public void huntForTreasure(){ //unfinished!!
         int findTreasure = (int) (Math.random() * 7) + 1;
-        boolean searchedTown = false;
-        if(searchedTown){
+        if(isSearched){
             System.out.println("Ye already searched fer' treasure here, find a new town!");
         }else{
-            if(findTreasure == 1){
+            setSearchTrue();
+            if(findTreasure == 1 && !hunter.hasTreasure("Crown")){
                 System.out.println("Ye' found a golden Crown! Fitting only for a king");
                hunter.addTreasure("Crown");
-            } else if (findTreasure == 2) {
+            } else if (findTreasure == 2 && !hunter.hasTreasure("Trophy")) {
                 System.out.println("Ye' found a trophy! I wonder what competition it be for?");
                 hunter.addTreasure("Trophy");
-            } else if (findTreasure == 3) {
+            } else if (findTreasure == 3 && !hunter.hasTreasure("Gem")) {
                 System.out.println("Ye' found a gem! Rick Harrison would probably only give ye' 3 dabloons fer' it.");
                 hunter.addTreasure("Gem");
             }else{
                 System.out.println("Ye' found dust, unfortunate.");
             }
-            searchedTown = true;
         }
     }
     public String toString() {
@@ -170,5 +171,8 @@ public class Town {
 
     public void resetNews() {
         printMessage = "You left the shop";
+    }
+    private void setSearchTrue(){
+        isSearched = true;
     }
 }
