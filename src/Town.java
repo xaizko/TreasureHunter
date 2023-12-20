@@ -32,9 +32,7 @@ public class Town {
         toughTown = (Math.random() < toughness);
     }
 
-    public String getLatestNews() {
-        return printMessage;
-    }
+    public String getLatestNews() {return printMessage;}
 
     /**
      * Assigns an object to the Hunter in town.
@@ -64,7 +62,7 @@ public class Town {
             printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + Colors.CYAN + "." + Colors.RESET;
             if (checkItemBreak()) {
                 hunter.removeItemFromKit(item);
-                printMessage += "\nUnfortunately, your " + item + " broke.";
+                printMessage += "\nUnfortunately, you lost your " + item + ".";
             }
 
             return true;
@@ -164,5 +162,9 @@ public class Town {
     private boolean checkItemBreak() {
         double rand = Math.random();
         return (rand < 0.5);
+    }
+
+    public void resetNews() {
+        printMessage = "You left the shop";
     }
 }

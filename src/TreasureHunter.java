@@ -128,6 +128,7 @@ public class TreasureHunter {
     private void processChoice(String choice) {
         if (choice.equals("b") || choice.equals("s")) {
             currentTown.enterShop(choice);
+            currentTown.resetNews();
         } else if (choice.equals("m")) {
             if (currentTown.leaveTown()) {
                 // This town is going away so print its news ahead of time.
