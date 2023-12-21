@@ -114,7 +114,7 @@ public class Town {
     }
 
     public void huntForTreasure(){ //unfinished!!
-        int findTreasure = (int) (Math.random() * 7) + 1;
+        int findTreasure = (int) (Math.random() * 4) + 1;
         if(isSearched){
             System.out.println("Ye already searched fer' treasure here, find a new town!");
         }else{
