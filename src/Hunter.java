@@ -273,5 +273,6 @@ public class Hunter {
         addItem("boots");
         addItem("horse");
         addItem("boat");
+        addItem("shovel");
     }
 }
