@@ -45,6 +45,9 @@ public class TreasureHunter {
         if(hunter.getGold() < 0){
             System.out.println(Colors.PURPLE + "Ye ran out o' gold, tough luck, but that be the way she goes. \nThanks fer playin'!"+ Colors.RESET);
             System.exit(0);
+        } else if (hunter.hasTreasure("Crown") && hunter.hasTreasure("Trophy") && hunter.hasTreasure("Gem")) {
+            System.out.println("Congratulations hunter, ye' found all the lost treasures! You win");
+            System.exit(0);
         }
     }
     /**
