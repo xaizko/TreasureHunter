@@ -18,6 +18,8 @@ public class TreasureHunter {
     private boolean hardMode;
     private boolean easyMode;
 
+    private boolean secretPirate;
+
     /**
      * Constructs the Treasure Hunter game.
      */
@@ -27,8 +29,12 @@ public class TreasureHunter {
         hunter = null;
         hardMode = false;
         easyMode = false;
+        secretPirate = false;
     }
 
+    public boolean getPirate(){
+        return secretPirate;
+    }
     public boolean getMode() {
         return easyMode;
     }
@@ -72,6 +78,10 @@ public class TreasureHunter {
         } else if (hard.equals("e")) {
             easyMode = true;
             hunter.changeGold(10);
+        }else if(hard.equals("s")){
+            hunter.setSecretPirate();
+            hunter.setHunterName("Captain Jack Sparrow");
+            System.out.println("Welcome aboard captain Jack");
         }
     }
 

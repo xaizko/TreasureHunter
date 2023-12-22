@@ -96,9 +96,10 @@ public class Town {
      */
     public void lookForTrouble() {
         double noTroubleChance;
+        int goldDiff = (int) (Math.random() * 10) + 1;
         if (toughTown) {
             noTroubleChance = 0.66;
-        } else if (mode = true) {
+        } else if (mode) {
             noTroubleChance = 0.165;
         } else {
             noTroubleChance = 0.33;
@@ -106,10 +107,13 @@ public class Town {
 
         if (Math.random() > noTroubleChance) {
             printMessage = "Ye couldn't find any trouble";
-        } else {
+        }
+        else {
             printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
-            int goldDiff = (int) (Math.random() * 10) + 1;
-            if (Math.random() > noTroubleChance) {
+            if (hunter.hasItemInKit("cannon")){
+                hunter.changeGold(goldDiff);
+                printMessage += ("It be you, the legendary Pirate. Here, take all me gold.");
+            }else if (Math.random() > noTroubleChance) {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold." + Colors.RESET;
                 printMessage += "\nYe won the brawl and'll receive " + Colors.YELLOW + goldDiff + " gold." + Colors.RESET;
                 hunter.changeGold(goldDiff);
